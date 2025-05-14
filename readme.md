@@ -62,7 +62,8 @@ npm test
 ```
 
 ### To run the tests with coverage:
+
 ```bash
 npm run test:coverage
 ```
-![Screenshot of Test Coverage](images/Screenshot 2025-05-14 at 1.16.03 PM.png)
+<img width="706" alt="Screenshot 2025-05-14 at 1 16 03 PM" src="https://github.com/user-attachments/assets/97409037-313a-4945-b313-502dcbfb5066" />
