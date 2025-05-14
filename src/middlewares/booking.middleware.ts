@@ -8,11 +8,11 @@ export function validateBookingId(bookingId: string, bookings: Map<string, Seat[
     }
 }
 
-export function validateSeatAvailability(seatPosition: string, seatingGrid: Array<Booking[]>
-): void {
-    let [rowIndex, colIndex] = convertSeatCode(seatPosition, seatingGrid.length);
+// export function validateSeatAvailability(seatPosition: string, seatingGrid: Array<Booking[]>
+// ): void {
+//     let [rowIndex, colIndex] = convertSeatCode(seatPosition, seatingGrid.length);
 
-    if (seatingGrid[rowIndex][colIndex].status !== SeatStatus.Available) {
-        throw new BookingError(`Seat ${seatPosition} is not available.`, { seatPosition, rowIndex, colIndex, status: seatingGrid[rowIndex][colIndex].status });
-    };
-}
+//     if (seatingGrid[rowIndex][colIndex].status !== SeatStatus.Available) {
+//         throw new BookingError(`Seat ${seatPosition} is not available.`, { seatPosition, rowIndex, colIndex, status: seatingGrid[rowIndex][colIndex].status });
+//     };
+// }
