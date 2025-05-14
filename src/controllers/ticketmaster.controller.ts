@@ -25,7 +25,7 @@ class TicketMasterController {
             try {
                 const { numTickets, seatPosition } = bookingInputSchema.parse(input.trim());
                 const bookingID = this.service.reservesSeat(numTickets, seatPosition);
-    
+
                 this.promptSeatPreference(numTickets, bookingID!);
             } catch (error) {
                 handleError(error);
@@ -33,14 +33,14 @@ class TicketMasterController {
             }
         });
     }
-    
+
     promptSeatPreference(numTickets: number, bookingID: string): void {
         this.rl.question('Enter blank to accept seat selection, or enter new seating position:\n', (input: string) => {
             if (input === '') {
                 this.service.confirmBooking(bookingID);
                 return this.displayMainMenu();
             }
-    
+
             try {
                 const validatedSeatPosition = seatPositionSchema.parse(input.trim());
                 this.service.cancelReservation(bookingID);

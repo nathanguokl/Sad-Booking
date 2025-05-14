@@ -27,7 +27,7 @@ class TicketMasterService {
         return this.seatingGrid;
     }
 
-    reservesSeat(numTickets: number, seatPosition?: string | null): string | undefined{
+    reservesSeat(numTickets: number, seatPosition?: string | null): string | undefined {
         try {
             const availableSeats = getAvailableSeatsCount(this.seatingGrid)
             if (numTickets <= 0 || numTickets > availableSeats) {
@@ -45,7 +45,7 @@ class TicketMasterService {
             const baseOrder = getSeatPriority(colsLength);
             let startRow = seat != null ? seat[0] : this.seatingGrid.length - 1;
             let startCol = seat != null ? seat[1] : 1;
-            
+
             const orderForRow = (rowIndex: number) => {
                 return seat && rowIndex === startRow
                     ? getSeatsInColumnRange(startCol, colsLength)
@@ -80,11 +80,11 @@ class TicketMasterService {
                     }
                 }
             }
-            
+
             const bookingId = this.generateBookingId();
             this.bookings.set(bookingId, reservedSeats);
             renderSeatingMap(this.seatingGrid);
-            logger.info(`Successfully reserved ${numTickets} seats`, { bookingId, seats: reservedSeats});
+            logger.info(`Successfully reserved ${numTickets} seats`, { bookingId, seats: reservedSeats });
             return bookingId;
         } catch (error) {
             throw error;
@@ -138,7 +138,7 @@ class TicketMasterService {
             renderSeatingMap(newGrid);
         } catch (error) {
             let err = error as Error;
-            logger.error(`Error in finding booking ID: ${err.message}`, { bookingId});
+            logger.error(`Error in finding booking ID: ${err.message}`, { bookingId });
             throw error;
         }
     }
